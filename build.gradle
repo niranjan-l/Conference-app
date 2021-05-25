@@ -1,0 +1,46 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.5'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	//id 'war'
+}
+
+group = 'com.niranjan2021'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation ('org.springframework.boot:spring-boot-starter-web')
+/*	{
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+
+	}*/
+	//runtimeOnly 'org.springframework.boot:spring-boot-starter-jetty'
+	//providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	//implementation 'javax.servlet:javax.servlet-api'
+	implementation 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.h2database:h2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation files('C:\\Users\\lniranja\\OneDrive - Capgemini\\2021\\idea_projects\\autoconfigure-h2database\\build\\libs\\autoconfigure-h2database-0.0.1-SNAPSHOT.jar')
+
+}
+
+
+test {
+	useJUnitPlatform()
+}
+
+/*
+jar {
+	manifest{
+		attributes "Main-Class": "com.niranjan2021.Conference.app.ConferenceAppApplication"
+	}
+	from {
+		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+}*/
