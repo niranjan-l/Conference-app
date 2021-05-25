@@ -27,10 +27,18 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation files('C:\\Users\\lniranja\\OneDrive - Capgemini\\2021\\idea_projects\\autoconfigure-h2database\\build\\libs\\autoconfigure-h2database-0.0.1-SNAPSHOT.jar')
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-configuration-processor'
+
 
 }
 
 
+dependencies {
+
+	implementation 'javax.inject:javax.inject:1'
+}
 test {
 	useJUnitPlatform()
 }
