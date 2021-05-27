@@ -1,11 +1,10 @@
-package com.niranjan2021.Conference.app.health;
+package com.niranjan2021.Conference.app.customactuator;
 
 
 import com.niranjan2021.Conference.app.configprop.ExConfigProp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.lang.invoke.MethodHandles;
@@ -26,7 +25,7 @@ public class CustomHealth implements HealthIndicator {
     @Override
     public Health health() {
         if(exConfigProp.isConferenceapp())
-        return Health.down().build();
+        return Health.down().withDetail("disabled",exConfigProp).build();
         return Health.up().build();
     }
 }
