@@ -62,4 +62,12 @@ public class SpeakersController {
 
     }
 
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<Speakers> searchBySpeakerName(@RequestParam String firstName, @RequestParam String lastName) {
+        return speakersRespository.findByFirstNameAndLastName(firstName,lastName);
+
+
+    }
 }

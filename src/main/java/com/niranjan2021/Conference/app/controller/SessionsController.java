@@ -50,11 +50,20 @@ public class SessionsController {
 
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-    public Sessions update( @PathVariable Long id, @RequestBody Sessions newsessions) {
+    public Sessions update(@PathVariable Long id, @RequestBody Sessions newsessions) {
         Sessions existingSession = sessionsRepository.getOne(id);
         BeanUtils.copyProperties(newsessions, existingSession, "session_id");
 
         return sessionsRepository.saveAndFlush(existingSession);
+
+    }
+
+
+    @RequestMapping(value = "{name}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<Sessions> searchBySessionName(@PathVariable String name) {
+        return sessionsRepository.findBySessionNameContains(name);
+
 
     }
 

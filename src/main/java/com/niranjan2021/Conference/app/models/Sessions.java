@@ -7,7 +7,8 @@ import javax.annotation.Generated;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "sessions")
+@Entity
+@Table(name = "sessions")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Sessions {
     public Sessions() {
@@ -15,9 +16,20 @@ public class Sessions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long session_id;
-    private String session_name;
-    private String session_description;
+    @Column(name = "session_id")
+    private Long sessionId;
+
+    @Column(name = "session_name")
+    private String sessionName;
+
+    @Column(name = "session_description")
+    private String sessionDescription;
+
+
+
+    @Column(name = "session_length")
+    private String sessionLength;
+
 
 
     public List<Speakers> getSpeakersList() {
@@ -38,36 +50,35 @@ public class Sessions {
 
 
     public Long getSession_id() {
-        return session_id;
+        return sessionId;
     }
 
     public void setSession_id(Long session_id) {
-        this.session_id = session_id;
+        this.sessionId = sessionId;
     }
 
     public String getSession_name() {
-        return session_name;
+        return sessionName;
     }
 
     public void setSession_name(String session_name) {
-        this.session_name = session_name;
+        this.sessionName = sessionName;
     }
 
     public String getSession_description() {
-        return session_description;
+        return sessionDescription;
     }
 
     public void setSession_description(String session_description) {
-        this.session_description = session_description;
+        this.sessionDescription = sessionDescription;
     }
 
     public String getSession_length() {
-        return session_length;
+        return sessionLength;
     }
 
-    public void setSession_length(String session_length) {
-        this.session_length = session_length;
+    public void setSession_length(String sessionLength) {
+        this.sessionLength = sessionLength;
     }
 
-    private String session_length;
 }

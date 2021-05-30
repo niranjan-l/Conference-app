@@ -18,7 +18,7 @@ public class CustomEndPoint {
     private   String data;
     @ReadOperation
     public String getReadiness(){
-        return  data;
+        return  readiness+" "+data;
     }
 
     @EventListener(ApplicationReadyEvent.class)
